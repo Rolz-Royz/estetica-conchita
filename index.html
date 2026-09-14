@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conchita | Estilistas Profesionales &amp; Spa — San Ángel, CDMX</title>
+<meta name="description" content="Estética Conchita: más de 40 años de estilismo profesional y spa en Tizapán San Ángel, CDMX. Cortes, color, peinados, tratamientos I.C.O.N., manicure, maquillaje y faciales.">
+<link rel="icon" href="assets/logo-color.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+<style>
+  /* Manual de marca: Anton (títulos) · Aileron (subtítulos/cuerpo → Montserrat) · Gistesy (palabras clave → Mrs Saint Delafield) */
+  :root{
+    --teal:#1E7C98;
+    --teal-deep:#0F4A5C;
+    --sky:#9FCBD6;
+    --sky-soft:#E4F1F4;
+    --stone:#AFA9A3;
+    --stone-soft:#F3F1EF;
+    --white:#FEFEFE;
+    --ink:#2B3336;
+    --ink-soft:#5E6669;
+    --gold:#C9954B;
+    --radius:18px;
+    --wrap:1180px;
+    --gutter:clamp(18px,4vw,40px);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--white);color:var(--ink);font:400 16px/1.65 "Montserrat","Aileron",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gutter)}
+  h1,h2,h3{font-family:"Anton",Impact,"Arial Narrow",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:1.02;margin:0}
+  .script{font-family:"Mrs Saint Delafield","Brush Script MT",cursive;text-transform:none;font-weight:400;letter-spacing:0;line-height:.8}
+  .eyebrow{font-weight:600;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal)}
+  section{padding-block:clamp(72px,10vw,128px);scroll-margin-top:60px}
+
+  /* NAV */
+  .nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s}
+  .nav.scrolled{background:rgba(254,254,254,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(43,51,54,.08)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .nav-logo{height:54px;width:auto}
+  .nav-logo.dark{display:none}
+  .nav.scrolled .nav-logo.light{display:none}
+  .nav.scrolled .nav-logo.dark{display:block}
+  .nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0;align-items:center}
+  .nav ul a{text-decoration:none;font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--white)}
+  .nav.scrolled ul a{color:var(--ink)}
+  .nav ul a:hover{color:var(--sky)}
+  .nav.scrolled ul a:hover{color:var(--teal)}
+  .btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:14px 26px;font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;transition:transform .2s,background .2s,color .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--teal);color:var(--white)}
+  .btn-primary:hover{background:var(--teal-deep)}
+  .btn-light{background:var(--white);color:var(--teal-deep)}
+  .btn-ghost{border:1.5px solid currentColor;color:var(--white)}
+  .nav ul .btn{padding:11px 20px;color:var(--white)!important}
+  .menu-btn{display:none;background:none;border:0;color:var(--white);cursor:pointer;padding:8px}
+  .nav.scrolled .menu-btn{color:var(--ink)}
+
+  /* HERO */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-block:120px 80px;background:#3BBFC0 url("assets/hero-conchita.png") right bottom/cover no-repeat;color:var(--white);overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,74,92,.78) 0%,rgba(15,74,92,.45) 45%,rgba(15,74,92,0) 70%)}
+  .hero .wrap{position:relative;width:100%}
+  .hero-copy{max-width:640px}
+  .hero .eyebrow{color:var(--sky)}
+  .hero h1{font-size:clamp(3.2rem,8.5vw,7rem);margin:18px 0 6px}
+  .hero h1 .script{display:block;font-size:.95em;color:var(--sky);margin:-.05em 0 .12em .1em}
+  .hero p.lead{font-size:clamp(1rem,1.5vw,1.15rem);max-width:470px;margin:22px 0 34px;color:rgba(254,254,254,.92)}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+  .hero-sign{position:absolute;right:calc(var(--gutter) + 70px);bottom:28px;text-align:right;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase}
+  .hero-sign strong{display:block;font-family:"Mrs Saint Delafield",cursive;font-size:2.4rem;letter-spacing:0;text-transform:none;font-weight:400;line-height:1}
+
+  /* STRIP */
+  .strip{background:var(--teal-deep);color:var(--white);padding-block:0}
+  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:34px 20px;text-align:center;border-left:1px solid rgba(159,203,214,.2)}
+  .stat:first-child{border-left:0}
+  .stat b{display:block;font-family:"Anton",sans-serif;font-weight:400;font-size:2.6rem;line-height:1;color:var(--sky)}
+  .stat span{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase}
+
+  /* ABOUT */
+  .about .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,7vw,96px);align-items:center}
+  .about-visual{position:relative;aspect-ratio:4/5;max-width:100%;border-radius:var(--radius);background:radial-gradient(circle at 30% 20%,var(--sky-soft),var(--sky) 90%);display:grid;place-items:center;overflow:hidden}
+  .about-visual img{width:88%}
+  .about-visual .quote{position:absolute;left:0;right:0;bottom:0;padding:28px;background:linear-gradient(transparent,rgba(15,74,92,.85));color:var(--white);font-size:.9rem}
+  .about-visual .quote em{font-family:"Anton",sans-serif;font-style:normal;text-transform:uppercase;font-size:1.3rem;display:block;line-height:1.1}
+  .about h2{font-size:clamp(2.4rem,5vw,4rem);margin:14px 0 24px;color:var(--ink)}
+  .about h2 .script{color:var(--teal);font-size:1.15em;display:block}
+  .about p{color:var(--ink-soft);margin:0 0 18px}
+  .signature{margin-top:28px;display:flex;align-items:center;gap:16px}
+  .signature .script{font-size:3rem;color:var(--teal)}
+  .signature small{display:block;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--stone)}
+
+  /* SERVICES */
+  .services{background:var(--stone-soft)}
+  .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px;margin-bottom:52px}
+  .head h2{font-size:clamp(2.4rem,5vw,4.2rem)}
+  .head h2 .script{color:var(--teal);font-size:1.1em}
+  .head p{max-width:420px;margin:0;color:var(--ink-soft)}
+  .tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+  .tab{border:1.5px solid var(--stone);background:transparent;color:var(--ink);border-radius:999px;padding:10px 20px;font:600 .78rem "Montserrat",sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+  .tab[aria-selected="true"],.tab:hover{background:var(--teal);border-color:var(--teal);color:var(--white)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:var(--white);border-radius:var(--radius);padding:30px 28px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -20px rgba(15,74,92,.35)}
+  .card .num{font-family:"Anton",sans-serif;color:var(--sky);font-size:.95rem;letter-spacing:.1em}
+  .card h3{font-size:1.55rem;margin:14px 0 10px;color:var(--ink)}
+  .card p{margin:0;color:var(--ink-soft);font-size:.93rem}
+  .card ul{margin:16px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+  .card li{font-size:.72rem;font-weight:600;letter-spacing:.06em;background:var(--sky-soft);color:var(--teal-deep);padding:5px 11px;border-radius:999px}
+  .card::after{content:"";position:absolute;right:-40px;top:-40px;width:110px;height:110px;border-radius:50%;border:1px solid var(--sky-soft)}
+  .card[hidden]{display:none}
+
+  /* CAMPAIGN */
+  .campaign{background:var(--teal);color:var(--white);position:relative;overflow:hidden}
+  .campaign::before{content:"";position:absolute;right:-8%;top:50%;transform:translateY(-50%) rotate(-12deg);width:62%;aspect-ratio:1.6;background:url("assets/logo-blanco.png") center/contain no-repeat;opacity:.1;pointer-events:none}
+  .campaign .wrap{position:relative;display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
+  .campaign .eyebrow{color:var(--sky)}
+  .campaign h2{font-size:clamp(3.4rem,9vw,7.5rem);margin:12px 0}
+  .campaign h2 .script{color:var(--sky);font-size:.8em;display:block;margin-bottom:.05em}
+  .campaign p{color:rgba(254,254,254,.88);max-width:480px}
+  .offers{display:grid;gap:16px}
+  .offer{display:flex;align-items:center;gap:22px;background:rgba(254,254,254,.08);border:1px solid rgba(159,203,214,.35);border-radius:var(--radius);padding:24px 26px}
+  .offer b{font-family:"Anton",sans-serif;font-weight:400;font-size:3.2rem;line-height:1;color:var(--white);min-width:110px}
+  .offer span{font-size:.95rem}
+  .timeline{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px;border-top:1px solid rgba(159,203,214,.3);padding-top:30px}
+  .timeline div{font-size:.88rem;color:rgba(254,254,254,.8)}
+  .timeline strong{display:block;font-family:"Anton",sans-serif;font-weight:400;font-size:1.3rem;text-transform:uppercase;color:var(--sky);letter-spacing:.03em}
+
+  /* TRANSFORM */
+  .transform{text-align:center}
+  .transform .big{font-size:clamp(2.6rem,7vw,6rem);color:var(--ink)}
+  .transform .big .script{display:block;color:var(--teal);font-size:1.05em;margin:.08em 0}
+  .transform .sub{max-width:560px;margin:26px auto 0;color:var(--ink-soft)}
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:880px;margin:52px auto 0}
+  .ba div{aspect-ratio:3/2;border-radius:var(--radius);display:flex;align-items:flex-end;justify-content:flex-start;padding:22px;font-family:"Anton",sans-serif;text-transform:uppercase;font-size:1.6rem;color:var(--white)}
+  .ba .before{background:linear-gradient(160deg,var(--stone),#8b857f)}
+  .ba .after{background:linear-gradient(160deg,var(--sky),var(--teal))}
+  .ba small{display:block;font-family:"Montserrat",sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:none;opacity:.9}
+
+  /* BRANDS */
+  .brands{background:var(--sky-soft);padding-block:56px}
+  .brands .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px}
+  .brands .eyebrow{color:var(--teal-deep)}
+  .brand-list{display:flex;flex-wrap:wrap;gap:clamp(24px,5vw,64px);align-items:center}
+  .brand-list span{font-family:"Anton",sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--teal-deep);letter-spacing:.06em;text-transform:uppercase}
+  .brand-list span.thin{font-family:"Montserrat",sans-serif;font-weight:500;letter-spacing:.3em;font-size:clamp(1rem,2vw,1.35rem)}
+
+  /* EXPERIENCES */
+  .exp .grid{grid-template-columns:repeat(3,1fr)}
+  .exp-card{border-radius:var(--radius);padding:36px 30px;min-height:320px;display:flex;flex-direction:column;justify-content:space-between;gap:26px}
+  .exp-card:nth-child(1){background:var(--ink);color:var(--white)}
+  .exp-card:nth-child(2){background:var(--sky);color:var(--teal-deep)}
+  .exp-card:nth-child(3){background:var(--stone-soft);color:var(--ink);border:1px solid #e6e2de}
+  .exp-card h3{font-size:clamp(1.8rem,3vw,2.4rem)}
+  .exp-card h3 .script{display:block;font-size:1.1em;margin-bottom:.1em}
+  .exp-card:nth-child(1) .script{color:var(--sky)}
+  .exp-card:nth-child(3) .script{color:var(--teal)}
+  .exp-card p{margin:0;font-size:.93rem;opacity:.9}
+  .exp-card .price{font-family:"Anton",sans-serif;font-size:2rem}
+
+  /* MANIFESTO */
+  .manifesto{background:var(--ink);color:var(--white);text-align:center;padding-block:clamp(80px,12vw,150px)}
+  .manifesto h2{font-size:clamp(2.2rem,6vw,5.2rem);max-width:980px;margin:0 auto}
+  .manifesto h2 em{font-style:normal;color:var(--sky)}
+  .manifesto p{margin:28px 0 0;font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;color:var(--stone)}
+
+  /* VISIT */
+  .visit .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(36px,6vw,80px);align-items:stretch}
+  .visit h2{font-size:clamp(2.4rem,5vw,4rem);margin:14px 0 30px}
+  .visit h2 .script{color:var(--teal);font-size:1.1em;display:block}
+  .info{display:grid;gap:26px}
+  .info h4{margin:0 0 6px;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal)}
+  .info p{margin:0;color:var(--ink-soft)}
+  .info a{text-decoration:none;border-bottom:1px solid var(--sky)}
+  .info a:hover{color:var(--teal)}
+  .hours{width:100%;border-collapse:collapse;font-size:.95rem;color:var(--ink-soft)}
+  .hours td{padding:6px 0;border-bottom:1px dashed #ddd8d3}
+  .hours td:last-child{text-align:right;color:var(--ink);font-weight:500}
+  .map{border-radius:var(--radius);overflow:hidden;min-height:420px;background:var(--sky-soft)}
+  .map iframe{width:100%;height:100%;min-height:420px;border:0;display:block;filter:grayscale(.35) contrast(1.05)}
+
+  /* FOOTER */
+  footer{background:var(--teal-deep);color:rgba(254,254,254,.85);padding-block:64px 32px}
+  footer .top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:30px;padding-bottom:40px;border-bottom:1px solid rgba(159,203,214,.2)}
+  footer .top img{height:84px;width:auto}
+  .tagline{font-family:"Mrs Saint Delafield",cursive;font-size:clamp(2.2rem,4vw,3.2rem);color:var(--sky);line-height:1}
+  .social{display:flex;gap:12px}
+  .social a{width:46px;height:46px;border-radius:50%;border:1px solid rgba(159,203,214,.4);display:grid;place-items:center;transition:background .2s}
+  .social a:hover{background:var(--teal)}
+  .social svg{width:19px;height:19px;fill:currentColor}
+  footer .bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:26px;font-size:.78rem;color:rgba(254,254,254,.55)}
+
+  .wa{position:fixed;right:20px;bottom:20px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--teal);color:var(--white);display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(15,74,92,.6)}
+  .wa svg{width:26px;height:26px;fill:currentColor}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+  @media (max-width:960px){
+    .grid,.exp .grid{grid-template-columns:1fr 1fr}
+    .about .wrap,.campaign .wrap,.visit .wrap{grid-template-columns:1fr}
+    .strip .wrap{grid-template-columns:1fr 1fr}
+    .stat:nth-child(3){border-left:0}
+    .stat{border-top:1px solid rgba(159,203,214,.2)}
+    .nav ul{position:fixed;inset:78px 0 auto 0;flex-direction:column;background:var(--white);padding:26px var(--gutter) 34px;gap:22px;box-shadow:0 20px 30px -20px rgba(0,0,0,.2);transform:translateY(-130%);transition:transform .3s}
+    .nav ul.open{transform:none}
+    .nav ul a{color:var(--ink)}
+    .menu-btn{display:block}
+    .hero{background-position:88% top;align-items:flex-end;padding-block:120px 56px}
+    .hero::before{background:linear-gradient(180deg,rgba(15,74,92,.1) 0%,rgba(15,74,92,.2) 35%,rgba(15,74,92,.88) 62%,rgba(15,74,92,.95) 100%)}
+    .hero-sign{display:none}
+  }
+  @media (max-width:620px){
+    .grid,.exp .grid,.timeline{grid-template-columns:1fr}
+    .nav-logo{height:44px}
+    .offer b{font-size:2.5rem;min-width:84px}
+    .ba div{font-size:1.2rem}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#inicio" aria-label="Estética Conchita, inicio">
+      <img class="nav-logo light" src="assets/logo-blanco.png" alt="Conchita Estilistas Profesionales &amp; Spa">
+      <img class="nav-logo dark" src="assets/logo-color.png" alt="" aria-hidden="true">
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <ul id="menu">
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#detox">Promociones</a></li>
+      <li><a href="#visitanos">Visítanos</a></li>
+      <li><a class="btn btn-primary" href="tel:+525556163937">Agenda tu cita</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">Estilistas profesionales &amp; spa · San Ángel, CDMX</span>
+        <h1><span class="script">Love is in</span>the hair</h1>
+        <p class="lead">Más de 40 años transformando la belleza en confianza. Cortes, color, peinados, tratamientos, uñas y spa en un espacio pensado para consentirte.</p>
+        <div class="hero-actions">
+          <a class="btn btn-light" href="tel:+525556163937">Agenda tu cita</a>
+          <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-sign"><strong>Conchita López</strong>Fundadora</div>
+  </section>
+
+  <!-- STATS -->
+  <section class="strip" aria-label="Estética Conchita en números">
+    <div class="wrap">
+      <div class="stat"><b>+40</b><span>Años de experiencia</span></div>
+      <div class="stat"><b>6</b><span>Áreas de servicio</span></div>
+      <div class="stat"><b>I.C.O.N.</b><span>Tratamientos profesionales</span></div>
+      <div class="stat"><b>6</b><span>Días a la semana</span></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="nosotros">
+    <div class="wrap">
+      <div class="about-visual reveal">
+        <img src="assets/logo-color.png" alt="Logotipo de Conchita Estilistas Profesionales &amp; Spa">
+        <div class="quote"><em>“Si te ves bien, te sientes bien.”</em>— Conchita López</div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Nuestra historia</span>
+        <h2><span class="script">Belleza, confianza</span>y estilo</h2>
+        <p>Desde hace más de cuatro décadas, Estética Conchita es un referente de estilismo en el sur de la Ciudad de México. Lo que comenzó como el sueño de Conchita López hoy es un equipo de estilistas profesionales que combina técnica, tendencia y trato cercano.</p>
+        <p>Creemos que la belleza comienza en el momento en que decides ser tú misma. Por eso cada servicio —de un corte de caballero a un peinado para tu gran día— se personaliza según tu estilo, tu cabello y tu piel.</p>
+        <p>Trabajamos con líneas profesionales como <strong>I.C.O.N.</strong> y <strong>FRESH</strong>, y compartimos lo que sabemos en masterclasses de tendencias, colorimetría y estilismo.</p>
+        <div class="signature">
+          <span class="script">Conchita</span>
+          <div><small>Fundadora</small><small>Estética Conchita</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="servicios">
+    <div class="wrap">
+      <div class="head reveal">
+        <div>
+          <span class="eyebrow">Servicios</span>
+          <h2>Todo para <span class="script">consentirte</span></h2>
+        </div>
+        <p>Cada ocasión especial merece un peinado espectacular. Descubre la experiencia completa de cabello, uñas, maquillaje y spa.</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Filtrar servicios">
+        <button class="tab" role="tab" aria-selected="true" data-filter="all">Todos</button>
+        <button class="tab" role="tab" aria-selected="false" data-filter="cabello">Cabello</button>
+        <button class="tab" role="tab" aria-selected="false" data-filter="belleza">Uñas &amp; maquillaje</button>
+        <button class="tab" role="tab" aria-selected="false" data-filter="spa">Spa &amp; piel</button>
+      </div>
+
+      <div class="grid" id="serviceGrid">
+        <article class="card reveal" data-cat="cabello">
+          <span class="num">01</span>
+          <h3>Cortes</h3>
+          <p>Cortes de dama y caballero con estilizado, adaptados a tus facciones y a las tendencias de temporada.</p>
+          <ul><li>Dama</li><li>Caballero</li><li>Corte + estilizado</li></ul>
+        </article>
+        <article class="card reveal" data-cat="cabello">
+          <span class="num">02</span>
+          <h3>Color</h3>
+          <p>Tintes, rubios, platinados y corrección de color. Neutralizamos tonos amarillos para un color vibrante y luminoso.</p>
+          <ul><li>Tinte completo</li><li>Rubios</li><li>Corrección</li></ul>
+        </article>
+        <article class="card reveal" data-cat="cabello">
+          <span class="num">03</span>
+          <h3>Peinados</h3>
+          <p>Peinados para bodas, graduaciones y eventos. Porque cada ocasión especial merece un peinado espectacular.</p>
+          <ul><li>Novia</li><li>Eventos</li><li>Con Conchita</li></ul>
+        </article>
+        <article class="card reveal" data-cat="cabello">
+          <span class="num">04</span>
+          <h3>Tratamientos</h3>
+          <p>Rituales capilares I.C.O.N. para recuperar brillo, hidratación y fuerza: Rebalance, Detox, Cure e India.</p>
+          <ul><li>Scalpcare</li><li>Rebalance</li><li>Detox</li></ul>
+        </article>
+        <article class="card reveal" data-cat="belleza">
+          <span class="num">05</span>
+          <h3>Manicure &amp; nails</h3>
+          <p>Uñas elegantes y perfectas: manicure, pedicure y diseños para lucir unas manos impecables.</p>
+          <ul><li>Manicure</li><li>Pedicure</li><li>Diseño</li></ul>
+        </article>
+        <article class="card reveal" data-cat="belleza">
+          <span class="num">06</span>
+          <h3>Maquillaje</h3>
+          <p>Maquillaje social, de noche y de novia, con una preparación de piel que hace que el acabado dure todo el día.</p>
+          <ul><li>Novia</li><li>Noche</li><li>Social</li></ul>
+        </article>
+        <article class="card reveal" data-cat="spa">
+          <span class="num">07</span>
+          <h3>Faciales</h3>
+          <p>Limpieza profunda, extracciones, facial para acné y facial para caballero con cosmética natural FRESH.</p>
+          <ul><li>Facial</li><li>Acné</li><li>Caballero</li></ul>
+        </article>
+        <article class="card reveal" data-cat="spa">
+          <span class="num">08</span>
+          <h3>Renovación de piel</h3>
+          <p>Peeling químico, microdermoabrasión y dermaplaning para una piel más lisa, uniforme y radiante.</p>
+          <ul><li>Peeling</li><li>Microdermoabrasión</li><li>Dermaplaning</li></ul>
+        </article>
+        <article class="card reveal" data-cat="spa">
+          <span class="num">09</span>
+          <h3>Cuerpo &amp; depilación</h3>
+          <p>Moldeado corporal, tratamiento de celulitis y depilación de cejas con hilo.</p>
+          <ul><li>Moldeado</li><li>Celulitis</li><li>Hilo</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAMPAIGN -->
+  <section class="campaign" id="detox">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Campaña I.C.O.N. · Septiembre 2026</span>
+        <h2><span class="script">Septiembre es</span>Detox</h2>
+        <p>Después de todo el verano, tu cabello merece un reset. La línea Detox de I.C.O.N. elimina residuos, purifica el cuero cabelludo y devuelve el brillo desde la raíz.</p>
+      </div>
+      <div class="offers reveal">
+        <div class="offer"><b>25%</b><span>de descuento en la compra de productos Detox.</span></div>
+        <div class="offer"><b>50%</b><span>en tu tratamiento al comprar cualquier producto de la línea.</span></div>
+        <a class="btn btn-light" href="tel:+525556163937" style="justify-self:start">Apártalo por teléfono</a>
+      </div>
+      <div class="timeline reveal">
+        <div><strong>Octubre · Cure</strong>Mes de la lucha contra el cáncer de mama.</div>
+        <div><strong>Nov–Dic · India</strong>Nutrición profunda para cerrar el año.</div>
+        <div><strong>Siempre · Rebalance</strong>Tratamientos sin enjuague para mamás y todas.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSFORMATION -->
+  <section class="transform">
+    <div class="wrap reveal">
+      <span class="eyebrow">Antes &amp; después</span>
+      <h2 class="big">De lo común… <span class="script">a lo</span>extraordinario</h2>
+      <p class="sub">Así es la magia de Estética Conchita. Mira nuestras transformaciones cada semana en Instagram.</p>
+      <div class="ba">
+        <div class="before"><span><small>@esteticaconchita</small>Antes</span></div>
+        <div class="after"><span><small>@esteticaconchita</small>Después</span></div>
+      </div>
+      <p style="margin-top:34px"><a class="btn btn-primary" href="https://www.instagram.com/esteticaconchita/" target="_blank" rel="noopener">Ver en Instagram</a></p>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="brands" aria-label="Marcas con las que trabajamos">
+    <div class="wrap">
+      <span class="eyebrow">Trabajamos con</span>
+      <div class="brand-list">
+        <span>I.C.O.N.</span>
+        <span class="thin">FRESH</span>
+        <span class="thin">Pure Light</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCES -->
+  <section class="exp">
+    <div class="wrap">
+      <div class="head reveal">
+        <div>
+          <span class="eyebrow">Experiencias</span>
+          <h2>Más que una <span class="script">estética</span></h2>
+        </div>
+        <p>Aprende, regala y vive momentos pensados para ti y para quienes más quieres.</p>
+      </div>
+      <div class="grid">
+        <article class="exp-card reveal">
+          <h3><span class="script">Masterclass</span>Tendencias en belleza &amp; estilo</h3>
+          <p>De la mano de expertos: cortes, colores y estilismo de temporada, asesoría personalizada y secretos para un glow-up total.</p>
+        </article>
+        <article class="exp-card reveal">
+          <h3><span class="script">Regala</span>Certificados de regalo</h3>
+          <div>
+            <div class="price">$2,000 MXN</div>
+            <p>Maquillaje de noche profesional o tinte completo + tratamiento capilar.</p>
+          </div>
+        </article>
+        <article class="exp-card reveal">
+          <h3><span class="script">Mommy Reset</span>Tiempo solo para ti</h3>
+          <p>El regreso a clases es para ellos… el Mommy Reset es para ti. Tratamiento Rebalance para consentirte, sola o con tu hija, hermana o mejor amiga.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="manifesto">
+    <div class="wrap reveal">
+      <h2>Amarte a ti misma es la <em>mayor revolución</em></h2>
+      <p>@esteticaconchita</p>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="visit" id="visitanos">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Visítanos</span>
+        <h2><span class="script">Te esperamos</span>en San Ángel</h2>
+        <div class="info">
+          <div>
+            <h4>Dirección</h4>
+            <p>Aldama 19-B, Col. Tizapán San Ángel<br>C.P. 01090, Álvaro Obregón, CDMX</p>
+          </div>
+          <div>
+            <h4>Teléfonos</h4>
+            <p><a href="tel:+525556161259">55 5616 1259</a> · <a href="tel:+525556163937">55 5616 3937</a> · <a href="tel:+525556160671">55 5616 0671</a></p>
+          </div>
+          <div>
+            <h4>Horario</h4>
+            <table class="hours">
+              <tr><td>Lunes a viernes</td><td>8:00 – 19:00</td></tr>
+              <tr><td>Sábado</td><td>8:30 – 17:00</td></tr>
+              <tr><td>Domingo</td><td>Cerrado</td></tr>
+            </table>
+          </div>
+          <div>
+            <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Aldama+19-B+Tizap%C3%A1n+San+%C3%81ngel+CDMX" target="_blank" rel="noopener" style="border:0">Cómo llegar</a>
+          </div>
+        </div>
+      </div>
+      <div class="map reveal">
+        <iframe title="Mapa de Estética Conchita" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Aldama+19-B,+Tizap%C3%A1n+San+%C3%81ngel,+01090+Ciudad+de+M%C3%A9xico&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <img src="assets/logo-blanco.png" alt="Conchita Estilistas Profesionales &amp; Spa">
+      <div class="tagline">Love is in the hair</div>
+      <div class="social">
+        <a href="https://www.instagram.com/esteticaconchita/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM21.9 7c-.1-1.6-.4-3-1.6-4.2S17.6 1.2 16 1.1C14.4 1 9.6 1 8 1.1 6.4 1.2 5 1.5 3.8 2.7S2.2 5.4 2.1 7C2 8.6 2 13.4 2.1 15c.1 1.6.4 3 1.6 4.2s2.6 1.5 4.2 1.6c1.6.1 6.4.1 8 0 1.6-.1 3-.4 4.2-1.6s1.5-2.6 1.6-4.2c.1-1.6.1-6.4.2-8zm-2.1 9.8a3.3 3.3 0 0 1-1.8 1.8c-1.3.5-4.3.4-5.7.4s-4.4.1-5.7-.4a3.3 3.3 0 0 1-1.8-1.8c-.5-1.3-.4-4.3-.4-5.7s-.1-4.4.4-5.7A3.3 3.3 0 0 1 6.6 3.6C7.9 3.1 10.9 3.2 12.3 3.2s4.4-.1 5.7.4a3.3 3.3 0 0 1 1.8 1.8c.5 1.3.4 4.3.4 5.7s.1 4.4-.4 5.7z"/></svg></a>
+        <a href="https://www.facebook.com/EsteticaConchita/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.3c-.3 0-1.3-.1-2.5-.1-2.4 0-4.1 1.5-4.1 4.2v2.1H7.7v3.5h2.7V22H14v-10h2.7l.4-3.5H14z"/></svg></a>
+        <a href="https://www.tiktok.com/@estetica.conchita" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.6 6.7a4.8 4.8 0 0 1-3.8-4.2V2h-3.4v13.4a2.9 2.9 0 1 1-2-2.8V9.2a6.3 6.3 0 1 0 5.4 6.2V8.6a8.1 8.1 0 0 0 4.8 1.5V6.8l-1-.1z"/></svg></a>
+        <a href="https://x.com/esteticaconchit" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M17.8 2.5h3.1l-6.8 7.8 8 10.6h-6.3l-4.9-6.4-5.6 6.4H2.2l7.3-8.3L1.8 2.5h6.4l4.4 5.9 5.2-5.9zm-1.1 16.5h1.7L7.4 4.3H5.5L16.7 19z"/></svg></a>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© <span id="year">2026</span> Conchita · Estilistas Profesionales &amp; Spa</span>
+      <span>Aldama 19-B, Tizapán San Ángel, CDMX</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="tel:+525556163937" aria-label="Llamar para agendar cita">
+  <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+</a>
+
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  const menuBtn = document.getElementById('menuBtn'), menu = document.getElementById('menu');
+  menuBtn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+    nav.classList.add('scrolled');
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); }));
+
+  document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', t === tab));
+    const f = tab.dataset.filter;
+    document.querySelectorAll('#serviceGrid .card').forEach(c => { c.hidden = f !== 'all' && c.dataset.cat !== f; if(!c.hidden) c.classList.add('in'); });
+  }));
+
+  const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
