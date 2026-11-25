@@ -161,6 +161,22 @@
   .lightbox img{max-height:88vh;max-width:min(92vw,720px);border-radius:12px;object-fit:contain}
   .lightbox button{position:absolute;top:18px;right:18px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(254,254,254,.4);background:transparent;color:var(--white);font-size:1.6rem;cursor:pointer}
 
+  /* AT WORK */
+  .at-work{background:var(--teal-deep);color:var(--white);overflow:hidden}
+  .at-work-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 60px}
+  .at-work .eyebrow{color:var(--sky)}
+  .at-work h2{font-size:clamp(2.4rem,5vw,4rem);margin:14px 0 0}
+  .at-work h2 .script{display:block;color:var(--sky);font-size:1.1em}
+  .at-work-side{max-width:400px}
+  .at-work-side p{margin:0;color:rgba(254,254,254,.82)}
+  .reel-nav{display:flex;gap:10px;margin-top:20px}
+  .reel-nav button{width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(159,203,214,.55);background:transparent;color:var(--white);font-size:1.2rem;cursor:pointer;transition:background .2s,border-color .2s}
+  .reel-nav button:hover{background:var(--sky);border-color:var(--sky);color:var(--teal-deep)}
+  .reel{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:48px;padding:4px max(var(--gutter),calc((100vw - var(--wrap)) / 2 + var(--gutter))) 18px;scroll-padding-inline:max(var(--gutter),calc((100vw - var(--wrap)) / 2 + var(--gutter)));scrollbar-width:thin;scrollbar-color:var(--sky) transparent}
+  .reel:focus-visible{outline:2px solid var(--sky);outline-offset:4px}
+  .reel .shot{flex:0 0 clamp(200px,21vw,250px);aspect-ratio:9/16;scroll-snap-align:start;background:rgba(254,254,254,.08)}
+  .reel .shot span{background:rgba(15,74,92,.82)}
+
   /* TEAM */
   .team{background:var(--sky-soft)}
   .team .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(36px,6vw,80px);align-items:center}
@@ -445,6 +461,34 @@
     </div>
   </section>
 
+  <!-- AT WORK -->
+  <section class="at-work" id="en-accion" aria-labelledby="accion-titulo">
+    <div class="wrap at-work-head reveal">
+      <div>
+        <span class="eyebrow">Manos a la obra</span>
+        <h2 id="accion-titulo"><span class="script">Un día</span>en el salón</h2>
+      </div>
+      <div class="at-work-side">
+        <p>Así se vive Estética Conchita por dentro: color, brushing, tratamientos y uñas, en manos de nuestro equipo. Desliza para ver más.</p>
+        <div class="reel-nav">
+          <button type="button" data-dir="-1" aria-label="Fotos anteriores">←</button>
+          <button type="button" data-dir="1" aria-label="Fotos siguientes">→</button>
+        </div>
+      </div>
+    </div>
+    <div class="reel reveal" tabindex="0" aria-label="Galería del equipo trabajando">
+      <button class="shot" type="button"><img src="assets/fotos/trabajo-brushing.jpg" alt="Estilista haciendo brushing con secadora a una clienta de cabello largo" loading="lazy"><span>Brushing</span></button>
+      <button class="shot" type="button"><img src="assets/fotos/trabajo-color.jpg" alt="Estilista aplicando color con brocha por secciones" loading="lazy"><span>Color</span></button>
+      <button class="shot" type="button"><img src="assets/fotos/trabajo-brazilian.jpg" alt="Estilista con mandil de Brazilian Blowout aplicando el tratamiento" loading="lazy"><span>Brazilian Blowout</span></button>
+      <button class="shot" type="button"><img src="assets/fotos/trabajo-lavado.jpg" alt="Estilistas atendiendo a una clienta en los lavabos" loading="lazy"><span>Lavado &amp; spa</span></button>
+      <button class="shot" type="button"><img src="assets/fotos/trabajo-corte.jpg" alt="Estilista cortando el cabello a un cliente" loading="lazy"><span>Caballero</span></button>
+      <button class="shot" type="button"><img src="assets/fotos/trabajo-colorimetria.jpg" alt="Estilista trabajando junto al círculo cromático de colorimetría" loading="lazy"><span>Colorimetría</span></button>
+      <button class="shot" type="button"><img src="assets/fotos/trabajo-peinado.jpg" alt="Estilista dando forma al cabello rubio con secadora" loading="lazy"><span>Peinado</span></button>
+      <button class="shot" type="button"><img src="assets/fotos/trabajo-unas.jpg" alt="Manicurista trabajando en la estación de uñas" loading="lazy"><span>Uñas</span></button>
+      <button class="shot" type="button"><img src="assets/fotos/trabajo-icon.jpg" alt="Equipo de estilistas frente al muro de I.C.O.N." loading="lazy"><span>Equipo I.C.O.N.</span></button>
+    </div>
+  </section>
+
   <!-- TEAM & SPACE -->
   <section class="team" id="equipo">
     <div class="wrap">
@@ -622,6 +666,8 @@
   const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+  const reel=document.querySelector('.reel');
+  document.querySelectorAll('.reel-nav button').forEach(b=>b.addEventListener('click',()=>reel.scrollBy({left:b.dataset.dir*reel.clientWidth*.7,behavior:'smooth'})));
   const lb=document.createElement('div');lb.className='lightbox';lb.hidden=true;lb.innerHTML='<img alt=""><button type="button" aria-label="Cerrar">×</button>';document.body.appendChild(lb);
   document.querySelectorAll('.shot').forEach(s=>s.addEventListener('click',()=>{const i=s.querySelector('img');lb.querySelector('img').src=i.src;lb.querySelector('img').alt=i.alt;lb.hidden=false;}));
   lb.addEventListener('click',()=>lb.hidden=true);document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.hidden=true;});
