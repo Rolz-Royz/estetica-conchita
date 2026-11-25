@@ -250,9 +250,9 @@
     .nav ul.open{transform:none}
     .nav ul a{color:var(--ink)}
     .menu-btn{display:block}
-    /* Foto arriba (cara completa), texto debajo sobre fondo oscuro */
-    .hero{--hero-img:clamp(440px,58svh,860px);background-size:auto var(--hero-img);background-position:100% 40px;align-items:flex-end;padding-block:calc(var(--hero-img) * .58 + 40px) 56px}
-    .hero::before{background:linear-gradient(180deg,rgba(15,74,92,0) 0,rgba(15,74,92,0) calc(var(--hero-img) * .5 + 40px),rgba(15,74,92,.85) calc(var(--hero-img) * .68 + 40px),#0f4a5c calc(var(--hero-img) * .82 + 40px),#0f4a5c 100%)}
+    /* Foto grande; el texto empieza bajo la barbilla y el difuminado cierra antes de que termine la imagen */
+    .hero{--hero-img:max(100svh,640px);background-size:auto var(--hero-img);background-position:88% top;align-items:flex-end;padding-block:calc(var(--hero-img) * .61) 40px}
+    .hero::before{background:linear-gradient(180deg,rgba(15,74,92,.08) 0,rgba(15,74,92,.1) calc(var(--hero-img) * .48),rgba(15,74,92,.82) calc(var(--hero-img) * .66),rgba(15,74,92,.96) calc(var(--hero-img) * .85),#0f4a5c calc(var(--hero-img) * .97),#0f4a5c 100%)}
     .hero-sign{display:none}
   }
   @media (max-width:620px){
